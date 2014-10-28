@@ -8,5 +8,4 @@ My Github Pages repo can be found at:
 https://github.com/ehermance/ehermance.github.io/
 
 And, soon, you can see my customized homepage at:
-
 http://ehermance.github.io/
