@@ -5,4 +5,4 @@ My Github user page is at:
 https://github.com/ehermance/
 
 And, my customized homepage is at:
-http://ehermance.github.io/
+https://ehermance.github.io/
