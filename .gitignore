@@ -1,0 +1,15 @@
+# local junk
+.DS_Store
+*.log
+
+# tooling
+node_modules/
+dist/
+.tmp/
+
+# drafts and raw assets
+design/
+drafts/
+*.sketch
+*.fig
+*.psd
