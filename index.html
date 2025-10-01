@@ -40,7 +40,17 @@
         <img class="brand__logo" src="assets/images/edh_dev_transparent.png" alt="EDH Dev logo" width="40" height="40" decoding="async" loading="eager" />
         <span class="brand__name">EDH Dev</span>
       </a>
-      <nav class="nav__links" aria-label="Site">
+
+      <!-- Mobile menu button -->
+      <button class="nav__toggle" type="button"
+              aria-controls="primary-menu"
+              aria-expanded="false"
+              aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <!-- Links -->
+      <nav id="primary-menu" class="nav__links" aria-label="Site">
         <a href="#work">Portfolio</a>
         <a href="#about">About</a>
         <a href="#contact" class="btn-ghost">Contact</a>
@@ -58,10 +68,9 @@
             <div class="kicker">Web UI • Front-End • Brand</div>
             <h1 class="title">Hi, I’m Ellen.<br/>I blend tech & creativity.</h1>
             <p class="subtitle">
-              Building fast, accessible, and beautiful interfaces — with the same care I bring to curating a thriving collection of plants.
+              Building fast, accessible, and beautiful interfaces with the same care I bring to curating a thriving collection of plants.
             </p>
             <div class="cta">
-              <!-- Links styled as buttons (no <button> inside <a>) -->
               <a href="#work" class="btn btn-primary">View My Work</a>
               <a href="#contact" class="btn btn-secondary">Contact</a>
             </div>
@@ -72,11 +81,13 @@
               <picture>
                 <source srcset="assets/images/edh_dev_dark.png" media="(prefers-color-scheme: dark)">
                 <source srcset="assets/images/edh_dev_light.png" media="(prefers-color-scheme: light)">
-                <img class="logo-img"
-                     src="assets/images/edh_dev_transparent.png"
-                     alt="EDH Dev circular logo"
-                     width="220" height="220"
-                     decoding="async" loading="eager">
+                <img
+                  class="logo-img"
+                  src="assets/images/edh_dev_transparent.png"
+                  alt="EDH Dev circular logo"
+                  width="512" height="512"
+                  sizes="(max-width: 768px) 70vw, 280px"
+                  decoding="async" loading="eager">
               </picture>
             </div>
           </div>
@@ -90,14 +101,14 @@
         <h2 class="section-title">Recent Projects</h2>
         <div class="grid cols-3">
           <article class="card">
-            <a href="https://chromewebstore.google.com/detail/hbmmmchhonhpclipgkoidifjjjjmghom?utm_source=item-share-cb"
+            <a href="https://github.com/ehermance/wcag-color-helper"
                target="_blank" rel="noopener noreferrer" class="card__link"
                aria-label="Open WCAG Color Helper on GitHub (new tab)">
               <div class="card__media" aria-hidden="true"></div>
               <div class="card__body">
                 <div class="chip">Accessibility • UI</div>
                 <h3>WCAG Color Helper</h3>
-                <p>A lightweight Chrome extension for designers and developers to instantly check color contrast and generate WCAG-compliant palettes, ensuring accessible and user-friendly designs.</p>
+                <p>A lightweight tool for designers and developers to instantly check color contrast and generate WCAG-compliant palettes, ensuring accessible and user-friendly designs.</p>
               </div>
             </a>
           </article>
