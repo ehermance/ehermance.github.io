@@ -1,3 +1,9 @@
+/* Brand */
+:root{
+  --brand-accent: #C2188B;
+  --brand-accent-dark: #E56AB8;
+}
+
 /* Base resets */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
@@ -256,6 +262,49 @@ body.menu-open .hamburger::after {
 .about__story p { max-width: 64ch; }
 .about__story p + p { margin-top: 10px; }
 
+.about__tldr .checks {
+  list-style: none;
+  list-style-position: outside;
+  padding-left: 2rem;      /* space for the marker */
+}
+.about__tldr .checks li {
+  position: relative;
+  margin: 8px 0;
+}
+
+/* --- Variant A: Emoji (cherry blossom) --- */
+.about__tldr .checks.checks--emoji-sakura li::before {
+  content: "🌸";
+  margin-left: -1.75em;
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+/* --- Variant B: Emoji (hibiscus) --- */
+.about__tldr .checks.checks--emoji-hibiscus li::before {
+  content: "🌺";
+  margin-left: -1.75em;
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  line-height: 1;
+}
+
+/* --- Variant C: Unicode (5-petal) --- */
+.about__tldr .checks.checks--unicode-dot li::before {
+  content: "✿";
+  margin-left: -1.4em;
+  position: absolute;
+  left: 0;
+  top: 0.25em; /* slightly different baseline */
+  font-size: 1.05em;
+  line-height: 1;
+  color: var(--brand-accent); /* Use brand color */
+}
+
 /* Larger screens: two columns with emphasis on Story, TL;DR sticky */
 @media (min-width: 900px) {
   .about__grid {
@@ -302,4 +351,15 @@ footer { padding: 1rem 0; text-align: center; background: #0D1117; color: #fff; 
   .btn-secondary { background: #232a35; color: #e9eaf1; }
   .btn-secondary:hover { background: #2a3341; }
   .about__tldr { background: linear-gradient(180deg, #161b22 0%, #111722 100%); }
+  .about__tldr .checks{ color: var(--brand-accent-dark); }
+}
+
+/* Forced-colors / high contrast: revert to native bullets */
+@media (forced-colors: active) {
+  .about__tldr .checks{
+    list-style: disc;
+    padding-left: 1.2rem;
+    color: CanvasText;
+  }
+  .about__tldr .checks li::before{ content: none; }
 }
