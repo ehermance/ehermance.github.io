@@ -216,14 +216,15 @@ body.menu-open .hamburger::after {
 
   .nav__links a {
     display: block;       /* full width by default */
-    padding: 10px 4px;
-    font-size: 1.05rem;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: right;
   }
 
   .nav__links a.btn-ghost {
     display: inline-block;           /* shrink to fit text */
     margin-top: 8px;
-    align-self: flex-start;          /* keeps it left aligned */
+    align-self: flex-end;          /* keeps it right aligned */
     padding: .5rem 1rem;             /* consistent with desktop */
     border: 2px solid #fff;
     border-radius: 8px;
@@ -333,7 +334,7 @@ body.menu-open .hamburger::after {
   position: absolute;
   left: 0;
   top: 0.25em;
-  font-size: 1.05em;
+  font-size: 1.1em;
   line-height: 1;
 }
 
@@ -344,7 +345,7 @@ body.menu-open .hamburger::after {
   position: absolute;
   left: 0;
   top: 0.25em;
-  font-size: 1.05em;
+  font-size: 1.1em;
   line-height: 1;
 }
 
@@ -355,7 +356,7 @@ body.menu-open .hamburger::after {
   position: absolute;
   left: 0;
   top: 0.25em; /* slightly different baseline */
-  font-size: 1.05em;
+  font-size: 1.1em;
   line-height: 1;
   color: var(--brand-accent);
 }
