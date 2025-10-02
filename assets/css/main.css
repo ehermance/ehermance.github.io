@@ -116,7 +116,7 @@ a.btn:focus-visible, .btn:focus-visible {
 }
 .btn-primary { background: var(--brand-primary); color: #fff; }
 .btn-primary:hover { background: var(--brand-primary-hover); transform: translateY(-2px); }
-.btn-secondary { background: var(--brand-secondary-bg); color: var(--brand-secondary-text); border: 3px solid #555555; border-radius: 8px;}
+.btn-secondary { background: var(--brand-secondary-bg); color: var(--brand-secondary-text); border: 2px solid #555555; border-radius: 8px;}
 .btn-secondary:hover { background: var(--brand-secondary-hover); }
 
 /* ===========================
@@ -248,11 +248,11 @@ body.menu-open .hamburger::after {
 .logo-circle {
   display: grid;
   place-items: center;
-  width: 100%;
   max-width: 320px;
+  width: auto;
   aspect-ratio: 1 / 1;
-  padding: 12px;
-  margin-inline: auto;
+  padding: 0;
+  margin-inline: 0;
   background: var(--logo-circle-bg);
   border-radius: 50%;
   box-shadow: var(--shadow-light);
