@@ -90,7 +90,6 @@
   });
 
   /* 4) Back to Top */
-  // Back to Top
   const topBtn = document.getElementById('backToTop');
   const topAnchor = document.getElementById('top') || document.body;
   if (!topBtn || !topAnchor) return;
