@@ -14,6 +14,9 @@
   --brand-secondary-bg: #eeeeee;
   --brand-secondary-hover: #dddddd;
   --brand-secondary-text: #333333;
+  --brand-secondary-bg-dark: #29323b;
+  --brand-secondary-hover-dark: #37424d;
+  --brand-secondary-text-dark: #e9eaf1;
 
   /* App backgrounds */
   --bg-light: #ffffff;
@@ -25,6 +28,7 @@
 
   /* Text colors */
   --text-light: #1b1b22;
+  --text-dark: #e9eaf1;
   --text-muted: #555555;
   --text-muted-dark: #cccccc;
 
@@ -112,7 +116,7 @@ a.btn:focus-visible, .btn:focus-visible {
 }
 .btn-primary { background: var(--brand-primary); color: #fff; }
 .btn-primary:hover { background: var(--brand-primary-hover); transform: translateY(-2px); }
-.btn-secondary { background: var(--brand-secondary-bg); color: var(--brand-secondary-text); }
+.btn-secondary { background: var(--brand-secondary-bg); color: var(--brand-secondary-text); border: 3px solid #555555; border-radius: 8px;}
 .btn-secondary:hover { background: var(--brand-secondary-hover); }
 
 /* ===========================
@@ -409,7 +413,7 @@ footer { padding: 1rem 0; text-align: center; background: var(--bg-dark); color:
    Dark mode adjustments
    =========================== */
 @media (prefers-color-scheme: dark) {
-  body { background: var(--bg-dark); color: #e9eaf1; }
+  body { background: var(--bg-dark); color: var(--text-dark); }
   .subtitle, .contact-lead { color: var(--text-muted-dark); }
   .card, .about__panel { background: var(--bg-card-dark); }
   .btn-secondary { background: var(--brand-secondary-bg-dark); color: var(--brand-secondary-text-dark); }
