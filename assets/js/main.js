@@ -88,4 +88,48 @@
     if (w >= 769 && lastW < 769) closeMenu();
     lastW = w;
   });
+
+  /* 4) Back to Top */
+  // Back to Top
+  const topBtn = document.getElementById('backToTop');
+  const topAnchor = document.getElementById('top') || document.body;
+  if (!topBtn || !topAnchor) return;
+  const showAt = 500; // px scrolled
+
+  const onScroll = () => {
+    if (window.scrollY > showAt) {
+      topBtn.classList.add('is-visible');
+      topBtn.removeAttribute('hidden');
+    } else {
+      topBtn.classList.remove('is-visible');
+      topBtn.setAttribute('hidden', '');
+    }
+  };
+
+  topBtn.addEventListener('click', () => {
+    if (prefersReduced) {
+      window.scrollTo(0, 0);
+      // Move focus immediately
+      focusTop();
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // After smooth scroll, move focus (small timeout to let scroll settle)
+      setTimeout(focusTop, 300);
+    }
+  });
+
+  function focusTop() {
+    // Ensure focusable target without altering semantics
+    const needsTabIndex = !topAnchor.hasAttribute('tabindex');
+    if (needsTabIndex) topAnchor.setAttribute('tabindex', '-1');
+    topAnchor.focus({ preventScroll: true });
+    if (needsTabIndex) {
+      // Optional: clean up to avoid tab order pollution
+      topAnchor.addEventListener('blur', () => topAnchor.removeAttribute('tabindex'), { once: true });
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
 })();
