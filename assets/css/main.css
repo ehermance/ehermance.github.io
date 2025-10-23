@@ -252,16 +252,14 @@ body.menu-open .hamburger::after {
   width: auto;
   aspect-ratio: 1 / 1;
   padding: 0;
-  margin-inline: 0;
-  background: var(--logo-circle-bg);
-  border-radius: 50%;
-  box-shadow: var(--shadow-light);
+  margin: 0 auto;
 }
 .logo-img {
   display: block;
   width: 100%;
   max-width: 280px;
-  height: auto;           /* prevents distortion */
+  height: auto;
+  background: var(--logo-circle-bg);
   border-radius: 50%;
   object-fit: contain;
 }
@@ -278,7 +276,7 @@ body.menu-open .hamburger::after {
 }
 @media (max-width: 420px) {
   .logo-img { max-width: 220px; }
-  .logo-circle { max-width: 260px; padding: 10px; }
+  .logo-circle { max-width: 260px; }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .logo-img { max-width: 300px; }
@@ -448,6 +446,7 @@ footer { padding: 1rem 0; text-align: center; background: var(--bg-dark); color:
 @media (prefers-color-scheme: dark) {
   body { background: var(--bg-dark); color: var(--text-dark); }
   .subtitle, .contact-lead { color: var(--text-muted-dark); }
+  .logo-img { background: var(--brand-secondary-bg-dark) }
   .card, .about__panel { background: var(--bg-card-dark); }
   .btn-secondary { background: var(--brand-secondary-bg-dark); color: var(--brand-secondary-text-dark); }
   .btn-secondary:hover { background: var(--brand-secondary-hover-dark); }
