@@ -377,10 +377,9 @@ body.menu-open .hamburger::after {
    Contact
    =========================== */
 .contact { padding: 2rem 0; text-align: center; }
-.contact-lead { margin-bottom: 1.2rem; font-size: 1.1rem; color: var(--text-muted); }
-.contact-actions { display: flex; justify-content: center; gap: 12px; }
 .contact-actions {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 16px;
@@ -393,6 +392,12 @@ body.menu-open .hamburger::after {
 }
 .btn-linkedin:hover { background: var(--linkedin-hover); }
 .li-icon { display: inline-block; vertical-align: middle; }
+.btn-emailMe .li-icon {
+  font-size: 1.5rem;
+  line-height: 1rem;
+  text-shadow: 0 0 8px var(--brand-primary);
+  margin-right: 0.25rem;
+}
 
 /* ===========================
    Footer
