@@ -41,6 +41,8 @@
   --shadow-card-hover: 0 10px 24px rgba(0,0,0,.12);
 
   /* Third-party brand */
+  --plantcareai: #047857;
+  --plantcareai-hover: #065f46;
   --linkedin: #0A66C2;
   --linkedin-hover: #004182;
 }
@@ -317,6 +319,8 @@ body.menu-open .hamburger::after {
 .about__story { order: 2; }
 .about__story p { max-width: 64ch; }
 .about__story p + p { margin-top: 10px; }
+.about__story a { color: var(--plantcareai); text-decoration: underline; }
+.about__story a:hover { color: var(--plantcareai-hover); text-decoration: underline; }
 
 /* TL;DR bullet styles (choose one via class on UL) */
 .about__tldr .checks {
@@ -450,6 +454,8 @@ footer { padding: 1rem 0; text-align: center; background: var(--bg-dark); color:
    =========================== */
 @media (prefers-color-scheme: dark) {
   body { background: var(--bg-dark); color: var(--text-dark); }
+  .about__story a { color: #6ee7b7; }
+  .about__story a:hover { color: #a7f3d0; }
   .subtitle, .contact-lead { color: var(--text-muted-dark); }
   .logo-img { background: var(--brand-secondary-bg-dark) }
   .card, .about__panel { background: var(--bg-card-dark); }
