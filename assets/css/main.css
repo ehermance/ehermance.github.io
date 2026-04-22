@@ -303,6 +303,20 @@ body.menu-open .hamburger::after {
 }
 
 /* ===========================
+   Portfolio
+   =========================== */
+.portfolio__more {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.portfolio__more a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  font-weight: 500;
+}
+.portfolio__more a:hover { color: var(--brand-primary-hover); }
+
+/* ===========================
    About
    =========================== */
 .about { padding: 3rem 0; }
