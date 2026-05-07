@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="After a layoff in 2025, Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Here's what she actually learned about AI-assisted development." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How I Built a Production AI App Solo — Ellen Hermance</title>
+  <link rel="canonical" href="https://ehermance.com/writing/how-i-built-plantcareai/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ehermance.com/writing/how-i-built-plantcareai/" />
+  <meta property="og:title" content="How I Built a Production AI App Solo" />
+  <meta property="og:description" content="After a layoff in 2025, Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Here's what she actually learned about AI-assisted development." />
+  <meta property="og:image" content="https://ehermance.com/assets/images/edh_dev_light.png" />
+  <meta property="article:author" content="Ellen Hermance" />
+  <meta property="article:published_time" content="2026-05-07T00:00:00Z" />
+  <meta property="article:modified_time" content="2026-05-07T00:00:00Z" />
+  <meta property="article:tag" content="AI development" />
+  <meta property="article:tag" content="solo founder" />
+  <meta property="article:tag" content="PlantCareAI" />
+  <meta property="article:tag" content="Claude Code" />
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How I Built a Production AI App Solo" />
+  <meta name="twitter:description" content="After a layoff in 2025, Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM." />
+  <meta name="twitter:image" content="https://ehermance.com/assets/images/edh_dev_light.png" />
+
+  <!-- Security & Privacy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Author & identity -->
+  <meta name="author" content="Ellen Hermance" />
+  <link rel="me" href="https://www.linkedin.com/in/ellendiephermance/" />
+  <link rel="me" href="https://github.com/ehermance" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts (non-blocking) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;900&display=swap"></noscript>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+  <meta name="theme-color" content="#9B6DFF">
+
+  <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <script defer src="../../assets/js/main.js"></script>
+
+  <!-- Structured Data: Article + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://ehermance.com/writing/how-i-built-plantcareai/#article",
+        "headline": "How I Built a Production AI App Solo",
+        "description": "After a layoff in 2025, Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Here's what she actually learned about AI-assisted development.",
+        "datePublished": "2026-05-07",
+        "dateModified": "2026-05-07",
+        "url": "https://ehermance.com/writing/how-i-built-plantcareai/",
+        "image": "https://ehermance.com/assets/images/edh_dev_light.png",
+        "author": {
+          "@type": "Person",
+          "@id": "https://ehermance.com/#person"
+        },
+        "publisher": {
+          "@id": "https://ehermance.com/#person"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ehermance.com/writing/how-i-built-plantcareai/"
+        },
+        "about": {
+          "@type": "SoftwareApplication",
+          "@id": "https://ehermance.com/#plantcareai",
+          "name": "PlantCareAI",
+          "url": "https://plantcareai.app",
+          "applicationCategory": "LifestyleApplication",
+          "description": "A weather and context-aware AI plant advisor built with Python/Flask, Claude Haiku, and LiteLLM.",
+          "operatingSystem": "Web",
+          "creator": {
+            "@id": "https://ehermance.com/#person"
+          }
+        },
+        "mentions": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://ehermance.com/#plantcareai",
+            "name": "PlantCareAI",
+            "url": "https://plantcareai.app"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Claude Code",
+            "url": "https://claude.ai/code",
+            "description": "Anthropic's AI coding assistant, used to write the majority of PlantCareAI's code under Ellen Hermance's technical direction."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "LiteLLM",
+            "url": "https://litellm.ai",
+            "description": "LLM orchestration library used to manage the fallback chain between Claude Haiku and Google Gemini in PlantCareAI."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Flask",
+            "url": "https://flask.palletsprojects.com",
+            "description": "Python web framework used as the backend for PlantCareAI."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Supabase",
+            "url": "https://supabase.com",
+            "description": "PostgreSQL database provider used for PlantCareAI's data layer."
+          }
+        ],
+        "keywords": [
+          "AI development",
+          "solo founder",
+          "PlantCareAI",
+          "Claude Code",
+          "AI plant advisor",
+          "Flask",
+          "LiteLLM",
+          "AI-assisted development"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ehermance.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Writing",
+            "item": "https://ehermance.com/writing/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "How I Built a Production AI App Solo",
+            "item": "https://ehermance.com/writing/how-i-built-plantcareai/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ehermance.com/writing/how-i-built-plantcareai/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How should you describe your role when Claude Code writes the code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Be honest about your role. If Claude Code is writing the code and you are directing it, own that clearly. 'I directed the build and reviewed all code before shipping' is accurate and respectable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does AI-assisted development actually require?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI-assisted development does not reduce the need for product and engineering judgment. It relocates it. The decisions about data modeling, feature scope, user experience, and system boundaries still require the same depth of thinking they would without AI."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a CONTEXT.md file in an AI-assisted project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A living document in the repo that orients any new Claude Code session to the project: architecture decisions, naming conventions, known constraints. It keeps a project coherent across many sessions and many features."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Skip to main content -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Navigation -->
+  <header id="top" class="nav" aria-label="Primary">
+    <div class="container nav__row">
+      <a class="brand" href="../../">
+        <img class="brand__logo" src="../../assets/images/edh_dev_transparent.png" alt="Ellen Hermance logo" width="40" height="40" decoding="async" loading="eager" />
+        <span class="brand__name">Ellen Hermance</span>
+      </a>
+
+      <!-- Mobile menu button -->
+      <button class="nav__toggle" type="button"
+              aria-controls="primary-menu"
+              aria-expanded="false"
+              aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <!-- Links -->
+      <nav id="primary-menu" class="nav__links" aria-label="Site">
+        <a href="../../#work">Portfolio</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact" class="btn-ghost">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content landmark -->
+  <main id="main">
+    <div class="container">
+      <div class="article-layout">
+
+      <!-- Article header -->
+      <header class="article-header">
+        <div class="kicker">AI Development · Solo Founding</div>
+        <h1>How I Built a Production AI App Solo</h1>
+        <div class="article-meta">
+          <span>By <a href="../../" rel="author">Ellen Hermance</a></span>
+          <time datetime="2026-05-07">May 2026</time>
+          <span>8 min read</span>
+        </div>
+        <p class="article-lead">
+          <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer">PlantCareAI</a> is a weather and context-aware AI plant advisor that gives personalized care guidance based on each plant's history and live local weather data. I built it solo after getting laid off in August 2025. Here's what I actually learned about building with AI when no one else is on the team.
+        </p>
+      </header>
+
+      <!-- Article body -->
+      <article class="prose">
+
+        <h2>What I built</h2>
+        <p>
+          <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer">PlantCareAI</a> is a weather and context-aware AI plant advisor. Free users can enter a plant name and their location to get care recommendations from the AI. Signed-in users get a personal plant dashboard where they can track their plants, set watering and care reminders, and add journal entries. The AI uses each plant's context, plus live weather data from <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">OpenWeather</a>, to tailor its advice.
+        </p>
+        <p>
+          The stack: Python/<a href="https://flask.palletsprojects.com" target="_blank" rel="noopener noreferrer">Flask</a>, PostgreSQL (via <a href="https://supabase.com" target="_blank" rel="noopener noreferrer">Supabase</a>), Tailwind CSS, plain JavaScript, Render for deployment, Cloudflare for DNS, and Anthropic's Claude Haiku as the primary LLM with Google Gemini as a fallback, orchestrated through <a href="https://litellm.ai" target="_blank" rel="noopener noreferrer">LiteLLM</a>. Authentication is OTP email-based. Payments are handled through Stripe. The whole thing is WCAG 2.1 AA accessible and PWA-friendly.
+        </p>
+        <p>
+          I own and operate all of it. But I want to be honest about what "built it solo" actually means when you work with Claude Code.
+        </p>
+
+        <h2>My honest role: product owner and technical director</h2>
+        <p>
+          I was less of a programmer on this project and more of a product owner directing an AI developer. Claude Code wrote the majority of the code. My job was to define what needed to be built, make every product and architecture decision, review what Claude Code produced, run the tests it generated, and decide what shipped.
+        </p>
+        <p>
+          That is not a lesser role. It is a different one, and I think it is worth being honest about what it looks like in practice, because I suspect a lot of people are doing something similar without quite knowing how to describe it.
+        </p>
+        <p>
+          The mental model that made the biggest difference: I treated Claude Code like a developer on my team. I was the product owner and technical lead. I owned the vision, the data model, the feature priorities, and the quality bar. Claude Code executed. I reviewed everything using Anthropic's code review tools before committing, and I pushed back when something did not meet the standard or did not match what I was trying to build.
+        </p>
+
+        <div class="callout">
+          <strong>Key principle</strong>
+          Directing Claude Code well requires knowing what you want clearly enough to describe it, understanding the output well enough to evaluate it, and having the judgment to know when to accept, revise, or reject what comes back. All three of those things draw on real experience.
+        </div>
+
+        <h2>The LLM fallback chain</h2>
+        <p>
+          One of the product decisions I am most proud of is the fallback chain for AI responses.
+        </p>
+        <p>
+          I specified a three-tier fallback: Claude Haiku first, then Google Gemini, then a set of hardcoded general plant care responses if both APIs fail. The requirement was that the app should never simply die because one provider has an outage. <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer">Claude Code</a> implemented it using <a href="https://litellm.ai" target="_blank" rel="noopener noreferrer">LiteLLM</a>, and also wrote the pytest tests to verify the fallback behavior under simulated API failures. I ran the tests manually and reviewed each one before committing.
+        </p>
+        <p>
+          Reviewing tests I did not write taught me something useful: reading a test carefully enough to approve it requires understanding the behavior it is verifying. That is a different kind of comprehension than writing the test yourself, but it is not a shallow one.
+        </p>
+
+        <h2>The daily weather job</h2>
+        <p>
+          Every morning at 6 AM UTC, an <a href="https://apscheduler.readthedocs.io" target="_blank" rel="noopener noreferrer">APScheduler</a> job runs inside the Flask app. It pulls all users who have active plant care reminders, gets their city, fetches the day's forecast from <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">OpenWeather</a>, and applies conditional logic to each reminder.
+        </p>
+        <p>
+          Is the plant outdoors? Is there precipitation expected? Is there a freeze or heatwave warning? Is the sunlight level significantly lower than usual? Based on the answers, the job adjusts the reminder due date and records the highest-priority reason for the adjustment in the database. A user who has a watering reminder on a rainy day will see it pushed automatically, with an explanation they can override.
+        </p>
+        <p>
+          I designed the logic for this feature. Claude Code implemented it. The distinction matters, and I have come to think it is the most important one in AI-assisted development: who is deciding what the software should do?
+        </p>
+
+        <h2>What directing AI development actually requires</h2>
+        <p>
+          AI-assisted development does not reduce the need for product and engineering judgment. It relocates it.
+        </p>
+        <p>
+          Claude Code will build whatever you describe. It will not tell you that you are designing yourself into a corner three months from now. The decisions about data modeling, feature scope, user experience, and system boundaries were mine to make. Getting them right required the same depth of thinking they would have required without AI in the loop, and sometimes more, because moving fast means mistakes compound faster too.
+        </p>
+        <p>
+          I also had to develop taste. Not every technically correct implementation is a good one to maintain. When reviewing Claude Code's output, I made a lot of small editorial decisions about naming, structure, and clarity. That part cannot be delegated, and I found I had stronger opinions about it than I expected.
+        </p>
+
+        <h2>What I would tell someone starting this way</h2>
+        <ul>
+          <li><strong>Be honest with yourself about your role.</strong> If Claude Code is writing the code and you are directing it, own that clearly. "I directed the build and reviewed all code before shipping" is accurate and respectable. Pretending you wrote every line helps no one, including you.</li>
+          <li><strong>Invest in your ability to review.</strong> The quality of AI-assisted development depends heavily on the quality of the review. Reading code you did not write, understanding what it does, and catching what it gets wrong are skills worth developing deliberately.</li>
+          <li><strong>Your product instincts matter more than you might expect.</strong> The part of this project I feel best about is not any individual technical decision. It is the feature set, the user experience, and the product logic. Those came from me. Claude Code made them real.</li>
+          <li><strong>Keep a context document.</strong> I maintain a living <code>CONTEXT.md</code> file in the repo that orients any new Claude Code session to the project: architecture decisions, naming conventions, known constraints. It is the kind of documentation that keeps a project coherent across many sessions and many features.</li>
+        </ul>
+
+        <p>
+          <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer">PlantCareAI</a> is a small app. But it is real: real infrastructure, real users, real production operations. I learned more building it than I expected, and the best part is that I genuinely enjoyed it.
+        </p>
+        <p>
+          What I enjoyed most, it turns out, was not writing code. It was owning a product, making decisions that mattered, and watching something I designed actually work for people. That clarity about what I find meaningful has been as valuable as anything else that came out of this project.
+        </p>
+
+        <!-- PlantCareAI CTA -->
+        <div class="article-cta">
+          <h3>Try PlantCareAI</h3>
+          <p>
+            Weather-aware plant care reminders, AI-powered advice, and a personal plant dashboard.
+            Free to use, no account required to get started.
+          </p>
+          <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer"
+             class="btn btn-primary btn-plantcareai"
+             aria-label="Open PlantCareAI (new tab)">
+            Visit PlantCareAI.app →
+          </a>
+        </div>
+
+        <!-- Author bio -->
+        <footer class="article-footer">
+          <div class="author-bio">
+            <img src="../../assets/images/edh_dev_transparent.png" alt="Ellen Hermance" width="56" height="56" loading="lazy" decoding="async" />
+            <p>
+              <strong>Ellen Hermance</strong> is a Senior Web Developer and the solo founder behind
+              <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer">PlantCareAI.app</a>.
+              Her portfolio is at <a href="https://ehermance.com/">ehermance.com</a>.
+            </p>
+          </div>
+        </footer>
+      </article>
+
+      </div><!-- /.article-layout -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">&copy; <span id="copyright-year"></span> Ellen Hermance — Built with care</div>
+  </footer>
+
+  <!-- Back to Top button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" hidden>
+    ↑ Top
+  </button>
+</body>
+</html>

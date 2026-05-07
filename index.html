@@ -31,8 +31,9 @@
   <link rel="preload" as="image" href="assets/images/edh_dev_light.png" media="(prefers-color-scheme: light)">
   <link rel="preload" as="image" href="assets/images/edh_dev_dark.png" media="(prefers-color-scheme: dark)">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+  <!-- Fonts (non-blocking) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;900&display=swap"></noscript>
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
@@ -44,6 +45,54 @@
   <!-- Styles & Scripts -->
   <link rel="stylesheet" href="assets/css/main.css" />
   <script defer src="assets/js/main.js"></script>
+
+  <!-- Author & identity -->
+  <meta name="author" content="Ellen Hermance" />
+  <link rel="me" href="https://www.linkedin.com/in/ellendiephermance/" />
+  <link rel="me" href="https://github.com/ehermance" />
+
+  <!-- Structured Data: Person + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://ehermance.com/#person",
+        "name": "Ellen Hermance",
+        "url": "https://ehermance.com/",
+        "jobTitle": "Senior Web Developer",
+        "description": "Web developer and solo founder building fast, accessible interfaces at the intersection of design, AI, and code.",
+        "sameAs": [
+          "https://www.linkedin.com/in/ellendiephermance/",
+          "https://github.com/ehermance"
+        ],
+        "knowsAbout": [
+          "Web Development",
+          "Accessible UI",
+          "AI-assisted development",
+          "Python",
+          "Flask",
+          "JavaScript"
+        ],
+        "founder": {
+          "@type": "SoftwareApplication",
+          "@id": "https://ehermance.com/#plantcareai",
+          "name": "PlantCareAI",
+          "url": "https://plantcareai.app"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ehermance.com/#website",
+        "url": "https://ehermance.com/",
+        "name": "Ellen Hermance",
+        "description": "Portfolio and writing by Ellen Hermance, Web UI Developer and solo founder.",
+        "publisher": { "@id": "https://ehermance.com/#person" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -151,13 +200,13 @@
         <h2 class="section-title">Recent Projects</h2>
         <div class="grid cols-3">
           <article class="card">
-            <a href="https://plants.ehermance.com"
+            <a href="https://plantcareai.app"
                target="_blank" rel="noopener noreferrer" class="card__link"
-               aria-label="Open Plant Care AI Assistant (new tab)">
+               aria-label="Open PlantCareAI (new tab)">
               <div class="card__media" aria-hidden="true"></div>
               <div class="card__body">
                 <div class="chip">AI • Flask</div>
-                <h3>Plant Care AI Assistant</h3>
+                <h3>PlantCareAI</h3>
                 <p>A Flask-based AI app that combines plant care knowledge with local weather data to deliver personalized guidance, blending technical development with real-world usability.</p>
               </div>
             </a>
@@ -191,6 +240,12 @@
           <a href="https://github.com/ehermance" target="_blank" rel="noopener noreferrer"
              aria-label="Visit Ellen's GitHub profile for more projects (new tab)">
             Visit my GitHub for more projects →
+          </a>
+        </p>
+        <p class="portfolio__more">
+          <a href="/writing/how-i-built-plantcareai/"
+             aria-label="Read: How I Built a Production AI App Solo">
+            How I built PlantCareAI solo with AI →
           </a>
         </p>
       </div>
