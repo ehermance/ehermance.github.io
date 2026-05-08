@@ -258,7 +258,7 @@
 
         <h2>My honest role: product owner and technical director</h2>
         <p>
-          I was less of a programmer on this project and more of a product owner directing an AI developer. Claude Code wrote the majority of the code. My job was to define what needed to be built, make every product and architecture decision, review what Claude Code produced, run the tests it generated, and decide what shipped.
+          My role on this project was as much product owner as programmer. Claude Code wrote the majority of the code. My job was to define what needed to be built, make every product and architecture decision, review what Claude Code produced, run the tests it generated, and decide what shipped.
         </p>
         <p>
           That is not a lesser role. It is a different one, and I think it is worth being honest about what it looks like in practice, because I suspect a lot of people are doing something similar without quite knowing how to describe it.
@@ -281,6 +281,17 @@
         </p>
         <p>
           Reviewing tests I did not write taught me something useful: reading a test carefully enough to approve it requires understanding the behavior it is verifying. That is a different kind of comprehension than writing the test yourself, but it is not a shallow one.
+        </p>
+
+        <h2>Shipping to production at scale</h2>
+        <p>
+          PlantCareAI launched in January 2026 as a free app. By April 2026 it had a live Premium tier with Stripe billing, webhook handling, and Stripe Tax configured for Texas sales tax compliance. Premium adds unlimited plant tracking, AI photo diagnosis, CSV and PDF export, custom themes, and Plant Stories, an AI-generated narrative of each plant's care history.
+        </p>
+        <p>
+          The SEO surface is larger than most solo projects at this stage. The site has 48 indexed URLs across 23 landing pages, 3 hub pages, and 15 species guides, all with structured data markup for Article, HowTo, and FAQPage schema. Every page is available in English and Spanish with hreflang implementation and SEO-translated slugs. An interactive watering decision tool lives at <a href="https://plantcareai.app/tools/water-check" target="_blank" rel="noopener noreferrer">/tools/water-check</a> and handles both houseplants and outdoor plants with separate decision logic for each.
+        </p>
+        <p>
+          The production infrastructure runs on Render with GitHub Actions CI/CD, Cloudflare for DNS and analytics, Supabase for the database, and Resend for transactional email. The test suite has over 500 pytest tests. None of that is unusual for a professional web application. What I found meaningful about it is that I designed all of it, made every infrastructure and product decision, and understood every moving part, which is harder to say about projects where you only own one layer.
         </p>
 
         <h2>The daily weather job</h2>
@@ -314,7 +325,7 @@
         </ul>
 
         <p>
-          <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer">PlantCareAI</a> is a small app. But it is real: real infrastructure, real users, real production operations. I learned more building it than I expected, and the best part is that I genuinely enjoyed it.
+          <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer">PlantCareAI</a> is an early-stage app. But it is real: live Stripe billing, real infrastructure, real users, real production operations. I learned more building it than I expected, and the best part is that I genuinely enjoyed it.
         </p>
         <p>
           What I enjoyed most, it turns out, was not writing code. It was owning a product, making decisions that mattered, and watching something I designed actually work for people. That clarity about what I find meaningful has been as valuable as anything else that came out of this project.
