@@ -261,9 +261,8 @@ body.menu-open .hamburger::after {
   width: 100%;
   max-width: 280px;
   height: auto;
-  background: var(--logo-circle-bg);
-  border-radius: 50%;
-  object-fit: contain;
+  border-radius: 24px;
+  object-fit: cover;
 }
 
 .cta { margin-top: 1.5rem; display: flex; gap: 1rem; }
@@ -471,7 +470,7 @@ footer { padding: 1rem 0; text-align: center; background: var(--bg-dark); color:
   .about__story a { color: #6ee7b7; }
   .about__story a:hover { color: #a7f3d0; }
   .subtitle, .contact-lead { color: var(--text-muted-dark); }
-  .logo-img { background: var(--brand-secondary-bg-dark) }
+
   .card, .about__panel { background: var(--bg-card-dark); }
   .btn-secondary { background: var(--brand-secondary-bg-dark); color: var(--brand-secondary-text-dark); }
   .btn-secondary:hover { background: var(--brand-secondary-hover-dark); }
