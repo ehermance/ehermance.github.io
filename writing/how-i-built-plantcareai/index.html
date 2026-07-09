@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="How Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Lessons from AI-assisted development." />
+  <meta name="description" content="How Ellen Hermance built PlantCareAI solo, a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Lessons from AI-assisted development." />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>How I Built a Production AI App Solo — Ellen Hermance</title>
   <link rel="canonical" href="https://ehermance.com/writing/how-i-built-plantcareai/" />
@@ -11,11 +11,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ehermance.com/writing/how-i-built-plantcareai/" />
   <meta property="og:title" content="How I Built a Production AI App Solo" />
-  <meta property="og:description" content="After a layoff in 2025, Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Here's what she actually learned about AI-assisted development." />
-  <meta property="og:image" content="https://ehermance.com/assets/images/EllenHermanceLogo.png?v=20260515" />
+  <meta property="og:description" content="After a layoff in 2025, Ellen Hermance built PlantCareAI solo, a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Here's what she actually learned about AI-assisted development." />
+  <meta property="og:image" content="https://ehermance.com/assets/images/bio-portrait-400.jpg" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="400" />
+  <meta property="og:image:alt" content="Ellen Hermance" />
   <meta property="article:author" content="Ellen Hermance" />
   <meta property="article:published_time" content="2026-05-07T00:00:00Z" />
-  <meta property="article:modified_time" content="2026-05-07T00:00:00Z" />
+  <meta property="article:modified_time" content="2026-07-09T00:00:00Z" />
   <meta property="article:tag" content="AI development" />
   <meta property="article:tag" content="solo founder" />
   <meta property="article:tag" content="PlantCareAI" />
@@ -24,8 +27,8 @@
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="How I Built a Production AI App Solo" />
-  <meta name="twitter:description" content="After a layoff in 2025, Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM." />
-  <meta name="twitter:image" content="https://ehermance.com/assets/images/EllenHermanceLogo.png?v=20260515" />
+  <meta name="twitter:description" content="After a layoff in 2025, Ellen Hermance built PlantCareAI solo, a production AI plant advisor using Flask, Claude Haiku, and LiteLLM." />
+  <meta name="twitter:image" content="https://ehermance.com/assets/images/bio-portrait-400.jpg" />
 
   <!-- Security & Privacy -->
   <meta http-equiv="Content-Security-Policy"
@@ -65,11 +68,11 @@
         "@type": "Article",
         "@id": "https://ehermance.com/writing/how-i-built-plantcareai/#article",
         "headline": "How I Built a Production AI App Solo",
-        "description": "After a layoff in 2025, Ellen Hermance built PlantCareAI solo — a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Here's what she actually learned about AI-assisted development.",
+        "description": "After a layoff in 2025, Ellen Hermance built PlantCareAI solo, a production AI plant advisor using Flask, Claude Haiku, and LiteLLM. Here's what she actually learned about AI-assisted development.",
         "datePublished": "2026-05-07",
-        "dateModified": "2026-05-07",
+        "dateModified": "2026-07-09",
         "url": "https://ehermance.com/writing/how-i-built-plantcareai/",
-        "image": "https://ehermance.com/assets/images/EllenHermanceLogo.png?v=20260515",
+        "image": "https://ehermance.com/assets/images/bio-portrait-400.jpg",
         "author": {
           "@type": "Person",
           "@id": "https://ehermance.com/#person"
@@ -303,6 +306,11 @@
           The production infrastructure runs on Render with GitHub Actions CI/CD, Cloudflare for DNS and analytics, Supabase for the database, and Resend for transactional email. The test suite has over 500 pytest tests. None of that is unusual for a professional web application. What I found meaningful about it is that I designed all of it, made every infrastructure and product decision, and understood every moving part, which is harder to say about projects where you only own one layer.
         </p>
 
+        <div class="callout">
+          <strong>Update, July 2026</strong>
+          The content library has roughly doubled since this was written: 56 landing pages each in English and Spanish, 6 hub pages, and 42 species guides. Premium launched in April 2026, and the site's ahrefs technical audit now scores 100.
+        </div>
+
         <h2>The daily weather job</h2>
         <p>
           Every morning at 6 AM UTC, an <a href="https://apscheduler.readthedocs.io" target="_blank" rel="noopener noreferrer">APScheduler</a> job runs inside the Flask app. It pulls all users who have active plant care reminders, gets their city, fetches the day's forecast from <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">OpenWeather</a>, and applies conditional logic to each reminder.
@@ -357,11 +365,12 @@
         <!-- Author bio -->
         <footer class="article-footer">
           <div class="author-bio">
-            <img src="../../assets/images/EllenHermanceLogo.png?v=20260515" alt="Ellen Hermance" width="56" height="56" loading="lazy" decoding="async" />
+            <img src="../../assets/images/bio-portrait-400.jpg" alt="Ellen Hermance" width="56" height="56" loading="lazy" decoding="async" />
             <p>
               <strong>Ellen Hermance</strong> is a Senior Web Developer and the solo founder behind
               <a href="https://plantcareai.app" target="_blank" rel="noopener noreferrer">PlantCareAI.app</a>.
-              Her portfolio is at <a href="https://ehermance.com/">ehermance.com</a>.
+              Her portfolio is at <a href="https://ehermance.com/">ehermance.com</a>. Ellen also writes the
+              <a href="https://plantcareai.app/author/ellen-hermance" target="_blank" rel="noopener noreferrer">plant care guides</a> at PlantCareAI.
             </p>
           </div>
         </footer>
