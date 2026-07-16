@@ -1,0 +1,28 @@
+# Ellen Hermance
+
+> Portfolio of Ellen Hermance: Senior Web Producer, Web Developer, and Website Manager with 20 years of experience in CMS governance, WCAG accessibility, and technical SEO. Founder and Product Manager of PlantCareAI, an AI-powered plant care platform. Owner of Elloquist LLC, the parent company of PlantCareAI and the Elloquist media brand.
+
+Ellen Hermance is a web professional based in Austin, Texas. She spent 20
+years running enterprise web properties, including managing web production
+across 30+ consumer brand sites at World Travel Holdings and leading a CMS
+migration spanning 18 of them. She built and operates PlantCareAI end to
+end, directing Claude Code as the development engine, and writes about
+AI-assisted development.
+
+## Key pages
+
+- [Home](https://ehermance.com/): Who Ellen is, what she does, and recent projects
+- [Writing](https://ehermance.com/writing/): Essays on AI-assisted development, solo founding, and accessibility
+- [How I Built a Production AI App Solo](https://ehermance.com/writing/how-i-built-plantcareai/): The honest story of building PlantCareAI by directing Claude Code
+
+## Related sites
+
+- [PlantCareAI](https://plantcareai.app): AI-powered plant care platform founded by Ellen; weather-aware reminders, personalized care advice, and a free tier
+- [Ellen's PlantCareAI author page](https://plantcareai.app/author/ellen-hermance): Bio and plant care guide methodology
+- [Elloquist](https://elloquist.com): Science and culture media brand operated by Elloquist LLC, Ellen's company and the parent of PlantCareAI
+
+## Contact
+
+- Email: info@ehermance.com
+- LinkedIn: https://www.linkedin.com/in/ellendiephermance
+- GitHub: https://github.com/ehermance
